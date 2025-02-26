@@ -7,17 +7,21 @@ function expandedForm(num) {
 let strNum=num.toString();
 let result=[]
 for(let i=0;i<strNum.length;i++){
-    let digit=strNum[i];
-    if(digit!=='0'){
-        let placeValue=Math.pow(10,strNum.length-i-1)
+    let digit=strNum[i]
+    if(digit!=="0"){
+        // "**"是es6之後的用法
+         let placeValue=10 **(strNum.length-i-1); //let placeValue=Math.pow(10,stNum.length-i-1)  也行
+        console.log(placeValue);
+        
         if(placeValue===1){
             result.push(`${digit}`)
         }else{
             result.push(`${placeValue} x ${digit}`)
         }
-    }
+}
 }return result.join(" + ")
-}  
+}
+
   console.log(expandedForm(8)); // 印出 8
   console.log(expandedForm(25)); // 印出 10 x 2 + 5
   console.log(expandedForm(148)); // 印出 100 x 1 + 10 x 4 + 8
