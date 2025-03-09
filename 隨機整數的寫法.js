@@ -9,7 +9,7 @@
 //         return Math.floor(Math.random()*number2-number1-number1);
 //     }
 // }
-function randomNumber(min,max=0){      //當沒有參數 可以先給他值來代替underfined 這樣就不用判斷max是否是underfined
+function randomNumber(min,max=0){      //當參數數量不一樣時 可以先給他值來代替underfined 這樣就不用判斷max是否是underfined
     return Math.floor(Math.random()*(max-min) + min);
 }
 console.log(randomNumber(50)); // 隨機印出 0 ~ 49 之間的任何一個數字
