@@ -5,7 +5,7 @@ function createCounter(){
     return count
     }
     }
-    const abc=closesure()
+    const abc=createCounter()
     console.log(abc);
     console.log(abc);
     
@@ -42,3 +42,20 @@ function createCounter(){
     // 閉包就像是一個有鎖的盒子，裡面有三顆球（外層變數），
     // 只有特定的三把鑰匙（addItem、removeItem、showItems）可以打開這個盒子，
     // 這樣外面的人無法直接接觸到球，只有這三個方法能操作它。
+
+
+
+    function items(){
+        let count=1;
+        return function(name,color){
+            return{id:count++,itemName:name,itemColor:color}
+        }
+    }
+    const getItem=items();
+
+    const itemOne=getItem("phone",
+        "red")
+    const itemTwo=getItem("cellphone","blue");
+    
+const itemBox=[itemOne,itemTwo]    
+console.log(itemBox);
