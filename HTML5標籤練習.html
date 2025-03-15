@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>純練習html5</title>
+</head>
+<body>
+    <!-- 頁首 -->
+    <header>
+        <h1>我的個人網站</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#portfolio">作品集</a></li>
+                <li><a href="#contact">聯絡我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主要內容 -->
+     <main>
+        <!-- 關於我 -->
+         <section id="about">
+            <h2>關於我</h2>
+            <p>嗨，我是學習 HTML5 的開發者！這是我的個人網站。</p>
+         </section>
+         <!-- 作品集 -->
+          <section id="portfolio">
+            <h2>作品集</h2>
+            <article>
+                <h3>專案1:Canvas 繪圖</h3>
+                <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000"></canvas>
+                <script>
+                let canvas=document.querySelector("#myCanvas");
+                let ctx=canvas.getContext("2d");
+                ctx.fillStyle="blue";
+                ctx.fillRect(20,10,150,20);
+              </script>
+            </article>
+                <h3>專案 2:HTML5影片</h3>
+                <video controls width="300">
+                    <source src="" type="video/mp4">
+                    您的瀏覽器不支援HTML5影片。
+                </video>
+          </section>
+          <!-- 聯絡表單 -->
+           <section id="contact">
+            <h2>聯絡我</h2>
+            <form>
+                <label for="name">姓名：</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">電子郵件：</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">訊息：</label>
+                <input type="text" id="message" name="message" required>
+                <button type="submit">送出</button>
+            </form>
+           </section>
+        </main>
+        <footer>
+            <p>學術研究 &copy; 2025</p>
+        </footer>
+</body>
+</html>
