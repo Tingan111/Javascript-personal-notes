@@ -21,17 +21,16 @@
 // }
 
 function findOddElm(arr){
-    arr.sort((a,b)=>a + b);//先用sort排序陣列
+    arr.sort((a,b)=>a - b);//先用sort排序陣列
     for(let i=0;i<arr.length;i++){ 
         let count=1;
       // 計算當前數字的出現次數
-        while (arr[i]===arr[i+1]){
+        while (arr[i]===arr[i+1]){                      
             count++;
             i++;
-        }
-      //  console.log(count);
-        
-        if(count%2===1)return arr[i]; //
+        }        
+        if(count%2===1)
+          return arr[i]; //
     }    
 
 }  
