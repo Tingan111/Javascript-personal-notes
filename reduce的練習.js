@@ -15,9 +15,9 @@ console.log(calculateAverage([])); // 應該回傳 0);
 //先判斷陣列長度是否為0
 //不是0的話用reduce語法對陣列內容做加總在除以陣列長度;
  
-function groupObjectsByProperty(objects,propety){
+function groupObjectsByProperty(objects,property){
     return objects.reduce((result,obj)=>{
-        const key=obj[propety];
+        const key=obj[property];
         if(result[key]){
             result[key].push(obj);
         }
