@@ -21,8 +21,8 @@
     <!-- 主要內容 -->
      <main>
         <section>
-            <form>
-            <select size="1">
+            <form onsubmit="return showSelected();">
+            <select id="emotion" value="suprise" size="1">
                 <option value="suprise">驚喜</option>
                 <option value="happy">快樂</option>
                 <option value="good">好</option>
@@ -30,7 +30,10 @@
                 <option value="nohappy">不開心</option>
                 <option value="notgood">不好</option>
             </select>
-            </form>
+            <button>選好</button>
+            </form> 
+            <div id="result"></div>
+
         </section>
         <!-- 關於我 -->
          <section id="about">
@@ -44,10 +47,7 @@
                 <h3>專案1:Canvas 繪圖</h3>
                 <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000"></canvas>
                 <script>
-                let canvas=document.querySelector("#myCanvas");
-                let ctx=canvas.getContext("2d");
-                ctx.fillStyle="blue";
-                ctx.fillRect(20,10,150,20);
+        
               </script>
             </article>
                 <h3>專案 2:HTML5影片</h3>
@@ -74,4 +74,39 @@
             <p>學術研究 &copy; 2025</p>
         </footer>
 </body>
+<script>
+    //select選項
+        function showSelected() {
+        // 取得選擇的選項
+        let selectElement = document.getElementById("emotion");
+        let selectedOption = selectElement.options[selectElement.selectedIndex].text;
+
+        // 顯示選擇的文字
+        document.getElementById("result").innerText = "你選擇的情緒是：" + selectedOption;
+
+        // 阻止表單提交到伺服器
+        return false;
+    }
+    let canvas=document.querySelector("#myCanvas");
+                let ctx=canvas.getContext("2d");
+                ctx.fillStyle="blue";
+                ctx.fillRect(20,10,150,20);
+//繪圖
+canvas.addEventListener("click", () => {
+    if (ctx.fillStyle ==="#0000ff") {   
+        // google瀏覽器只會抓十六進位色碼
+        console.log(ctx.fillStyle);
+        ctx.fillStyle = "red";
+        ctx.clearRect(0, 0, canvas.width, canvas.height);  // 清空畫布
+        ctx.fillRect(20, 10, 300, 20);
+        
+      // 用黑色繪製新的矩形
+    } else {
+        ctx.fillStyle = "blue";  
+        ctx.clearRect(0, 0, canvas.width, canvas.height);  // 清空畫布
+        ctx.fillRect(20, 10, 150, 20);  // 用藍色繪製原來的矩形
+
+    }
+});
+</script>
 </html>
