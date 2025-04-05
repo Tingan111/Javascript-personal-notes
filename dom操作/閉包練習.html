@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buttonCountiainer">
+        <button data-id="btn1">Button 1:0</button>
+        <button data-id="btn2">Button 2:0</button>
+        <button data-id="btn3">Button 3:0</button>
+    </div>
+</body>
+<script>
+    function createCounter(){
+        let count=0;
+        return function(){
+            count++;
+        return count
+        }
+    }
+    const counters={
+        btn1:createCounter(),
+        btn2:createCounter(),
+        btn3:createCounter(),
+    }
+    const buttonContainer= document.querySelector("#buttonCountiainer")
+    buttonContainer.addEventListener("click",function(event){
+        const button=event.target;
+        console.log(button.tagName);
+    if(button.tagName==="BUTTON"){
+        const id=button.dataset.id;
+        const counter= counters[id];
+    
+    if(counter){
+        const count=counter();
+        button.textContent=`${button.textContent.split(':')[0]}:${count}`;
+    }}
+})
+</script>
+</html>
