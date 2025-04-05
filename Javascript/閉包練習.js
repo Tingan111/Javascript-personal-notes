@@ -59,3 +59,27 @@ function createCounter(){
     
 const itemBox=[itemOne,itemTwo]    
 console.log(itemBox);
+
+
+function createCounter() {
+    let count = 0;
+    return {
+      increment: function() {
+        count++;
+        return count;
+      },
+      getCount: function() {
+        return count;
+      }
+    };
+  }
+  const counter1 = createCounter();
+  console.log(counter1.getCount());  // 0
+  console.log(counter1.increment()); // 1
+  console.log(counter1.increment()); // 2
+  console.log(counter1.getCount());  // 2
+  
+// 這是另一個 createCounter() 所產生的新閉包
+// 所以 count 又重新初始化為 0  
+  const counter2 = createCounter();
+  console.log(counter2.getCount());  // 
