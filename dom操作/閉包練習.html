@@ -5,9 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    body{
+        height: 100vh; /* 讓 body 滿版 */
+        display: flex;
+        justify-content: center; /* 水平置中 */
+        align-items: center;     /* 垂直置中 */
+
+    }
+    #buttonCountiainer {
+        display: flex;
+        flex-direction: column; /* 按鈕垂直排列 */
+        gap: 10px;               /* 按鈕間距 */
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color:white;
+        border-radius: 22px;
+        border: 2px solid black;
+        background: rgb(126, 197, 119);
+    }
+</style>
 <body>
     <div id="buttonCountiainer">
-        <button data-id="btn1">Button 1:0</button>
+        <button data-id="btn1">Button 1:0</button>    
         <button data-id="btn2">Button 2:0</button>
         <button data-id="btn3">Button 3:0</button>
     </div>
