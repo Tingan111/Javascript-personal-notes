@@ -13,8 +13,9 @@ return url.split("#")//split能把字串轉換成陣列
 const numberArr=(num)=>{return num.toString().split()}//split只對字串有效，對數字要先轉字串
 
 console.log(numberArr(123214));
-console.log(numberArr(1232,14));//如果沒split沒帶因數會以分隔號,分開
+console.log(numberArr(1232,14,12));//如果沒split沒帶引數會以分隔號,拆開並只留下第一個元素
 
-
+const limitArr=(str)=>{return str.split("",3)}//第一個引數帶""會把字串拆開，第二個引數決定最多留幾個元素
+console.log(limitArr("dd1sadasdasd"));
 
 
