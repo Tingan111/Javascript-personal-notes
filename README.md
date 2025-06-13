@@ -1,3 +1,3 @@
 # Javascript-test
-# python-test
-練習用
+
+主要練習ＪＳ相關應用
