@@ -16,10 +16,10 @@ const direction=(up,down,left,right)=>{
 
 let x = right - left; //參數不帶0 用 - 會自動轉型
 let y = up - down;
-if (x===0&&y===0){
+if (x===0&&y===0){  //&& 左右都成立的話回傳true 
     return "回到原地"};
 
-let xDirection=x > 0 ?`往右走${x}步`:x < 0 ?`往左走${Math.abs(x)}步`:"";//Math.abs()用來取絕對值
+let xDirection=x > 0 ?`往右走${x}步`:x < 0 ?`往左走${Math.abs(x)}步`:"";//Math.abs()用來取絕對值 三元運算子寫法ＸＸ？ＡＡ：ＢＢ XX成立傳ＡＡ不成立傳ＢＢ
 let yDirection=y > 0 ?`往上走${y}步`:y < 0 ?`往下走${Math.abs(y)}步`:"";
 return [xDirection,yDirection].filter(Boolean).join(",") //filter判斷陣列兩個值是truthy
 }																													
