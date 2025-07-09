@@ -1,15 +1,12 @@
-const todos = [
-  { id: 1, text: "買牛奶", done: false },
-  { id: 2, text: "寫作業", done: true },
-  { id: 3, text: "整理房間", done: false },
-];
-
-const test = (id) =>
-  todos.map((todo) => {
-    if (todo.id === id) {
-      return { ...todo, done: true };
-    } else {
-      return todo;
+const findMax=(arr)=>{
+  let Max=arr[0];//假設陣列第一個為最大
+  for(let i=0;i<arr.length;i++){
+    if(Max<arr[i]){ //for迴圈判斷arr[i]有沒有比Max大
+      Max=arr[i] //有的話賦值給Max
     }
-  });
-console.log(test(1));
+  }return Max  // 回傳Ｍax
+}
+
+const arr = [3, 7, 2, 99, 20];
+
+console.log(findMax(arr));
