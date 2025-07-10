@@ -1,12 +1,5 @@
-const findMax=(arr)=>{
-  let Max=arr[0];//假設陣列第一個為最大
-  for(let i=0;i<arr.length;i++){
-    if(Max<arr[i]){ //for迴圈判斷arr[i]有沒有比Max大
-      Max=arr[i] //有的話賦值給Max
-    }
-  }return Max  // 回傳Ｍax
-}
+const arr = [1, 2, 3, 4, 5];
 
-const arr = [3, 7, 2, 99, 20];
-
-console.log(findMax(arr));
+const result = (arr) => arr.map((arr) => arr * 8).filter((arr) => arr > 20);
+//用map創一新陣列把陣列每個值都＊8，在用filter判斷新的陣列>20為true的值挑出來
+console.log(result(arr));
