@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Arial", sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      min-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+    .section-title {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card{
+        background: white;
+        border-radius: 15px;
+        box-shadow:0 8px 25px rgba(0,0,0,0.15);
+        overflow: hidden;
+        
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1>CSS卡片設計練習</h1>
+
+      <!--Section 1: Grid基礎卡片佈局-->
+      <div class="section">
+        <h2 class="section-title">Grid 響應式卡片佈局</h2>
+        <div class="grid-container">
+          <div class="card">
+            <h3 class="card-title">專案管理工具</h3>
+            <div class="card-description">
+              提升團隊協作效率，讓專案管理更簡單直觀，支援甘特圖、看板等多種視圖
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$29/月</div>
+            <button class="card-button">立即試用</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
