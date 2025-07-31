@@ -27,7 +27,7 @@
       font-size: 2.5rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
-
+    /*1: Grid 基礎卡片佈局 */
     .section {
       margin-bottom: 60px;
     }
@@ -44,12 +44,160 @@
       margin-bottom: 40px;
     }
 
-    .card{
-        background: white;
-        border-radius: 15px;
-        box-shadow:0 8px 25px rgba(0,0,0,0.15);
-        overflow: hidden;
-        
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition:all 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35 px rgba(0, 0, 0, 0.2);
+    }
+    .card-image{
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(45deg,#f6b6bf,#feca57);/*漸層顏色寫法*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      position: relative;
+      overflow:hidden;   /* 當元素內容超出它的容器範圍時，把超出的部分隱藏起來，不顯示。 */
+    }
+    .card-image::before{
+      content:'';/*在使用 ::before 或 ::after 偽元素時，產生一個空的內容節點，使這個偽元素得以顯示出來。*/
+      position: absolute;
+      top:0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+      transition:left 0.5s;
+    }
+
+    .card:hover .card-image::before{
+      left:100%
+    }
+    .card-content{
+      padding: 20px;
+    }
+
+    .card-title{
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .card-description{
+      color:#666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .card-footer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 20px;
+    }
+    .card-price{
+      font-style: 1.5rem;
+      font-weight: bold;
+      color:#777eea;
+    }
+    .card-button{
+      background: linear-gradient(45deg,#667eea,#764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor:pointer;/*改滑鼠樣式*/
+      transition:all 0.3s ease;
+    }
+    .card-button:hover{
+      transform: scale(1.05);/*放大按鈕效果*/
+      box-shadow:0 5px 15px rgba(102,126,234,0.4);
+    }
+    /*2.Ｆlex特殊佈局卡片*/
+    .flex-container{
+      display: flex;
+      flex-wrap: wrap;
+      gap:20px;
+      justify-content: center;
+    }
+
+    .flex-card{
+      flex:1 1 300px;
+      min-width: 400px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+    
+    .flex-card:hover{
+      transform:scale(1.02) rotateY(5deg);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .flex-card-header{
+      background: linear-gradient(135deg,#ff9a9e,#fecfef);
+      padding: 30px 20px;
+      text-align: center;
+      position: relative; 
+    }
+    .flex-card-header::after{
+      content:'';
+      position: absolute;
+      bottom: -10px;
+      left:50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid #fecfef;
+    }
+
+    .flex-card-icon{
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .flex-card-title{
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    .flex-card-subtitle{
+      color:rgba(255,255,255,0.8)
+    }
+    .flex-card-body{
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .feature-list{
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .feature-list li{
+      padding: 8px 0;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .feature-list li::before{
+      content:'✓';
+      position: absolute;
+      left: 0;
+      color: #4CAF50;
+      font-weight: bold;
     }
   </style>
   <body>
@@ -61,14 +209,97 @@
         <h2 class="section-title">Grid 響應式卡片佈局</h2>
         <div class="grid-container">
           <div class="card">
+            <div class="card-image">🎯</div>
+            <div class="card-content">
             <h3 class="card-title">專案管理工具</h3>
             <div class="card-description">
               提升團隊協作效率，讓專案管理更簡單直觀，支援甘特圖、看板等多種視圖
             </div>
           </div>
           <div class="card-footer">
-            <div class="card-price">$29/月</div>
+            <span class="card-price">$29/月</span>
             <button class="card-button">立即試用</button>
+          </div>
+        </div>
+          <div class="card">
+            <div class="card-image">🚀</div>
+            <div class="card-content">
+              <h3 class="card-title">網站加速服務</h3>
+              <p class="card-description">
+                全球ＣＤＮ加速，讓你的網站訪問速度提升300%。支援圖片壓縮和智能快取
+            </p>
+            </div>
+            <div class="card-footer">
+              <span class="card-price">$49/月</span>
+              <button class="card-button">開始使用</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">🔒</div>
+            <div class="card-content">
+              <h3 class="card-title">資安防護系統</h3>
+<p class="card-description">企業及安全防護，24/7空間威脅。包含防火牆、入侵檢測等完整方案。</p>
+            <div class="card-footer">
+              <span class="card-price">$99/月</span>
+              <button class="card-button">了解更多</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--2:Flex特殊佈局卡片-->
+      <div class="section">
+        <h2 class="section-title">💎 Flex 價格方案卡片</h2>
+        <div class="flex-container">
+          <div class="flex-card">
+            <div class="flex-card-header">
+              <div class="flex-card-icon">🌟</div>
+              <h3 class="flex-card-title">基礎方案</h3>
+              <p class="flex-card-subtitle">適合個人使用</p>
+            </div>
+            <div class="flex-card-body">
+              <ul class="feature-list">
+                <li>5GB 儲存空間</li>
+                <li>基礎客服支援</li>
+                <li>標準安全防護</li>
+                <li>桌面端存取</li>
+              </ul>
+              <button class="card-button">選擇方案</button>
+            </div>
+          </div>
+          <div class="flex-card">
+            <div class="flex-card-header">
+              <div class="flex-card-icon">⭐</div>
+              <h3 class="flex-card-title">專業方案</h3>
+              <p class="flex-card-subtitle">適合小型團隊</p>
+            </div>
+            <div class="flex-card-body">
+              <ul class="feature-list">
+                <li>50GB 儲存空間</li>
+                <li>優先客服支援</li>
+                <li>進階安全防護</li>
+                <li>行動端 + 桌面端</li>
+                <li>團隊協作功能</li>
+              </ul>
+              <button class="card-button">選擇方案</button>
+            </div>
+          </div>
+
+          <div class="flex-card">
+            <div class="flex-card-header">
+            <div class="flex-card-icon">🚀</div>
+            <h3 class="flex-card-title">企業方案</h3>
+            <p class="flex-card-subtitle">適合大型企業</p>
+          </div>
+          <div class="flex-card-body">
+            <ul class="feature-list">
+              <li>無限儲存空間</li>
+              <li>24/7專屬客服</li>
+              <li>企業級安全</li>
+              <li>全平台支援</li>
+              <li>自訂整合方案</li>
+              <li>專屬帳戶管理</li>
+            </ul>
+            <button class="card-button">聯絡業務</button>
           </div>
         </div>
       </div>
