@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container {
+    min-width: 1200px;
+    margin: 0 auto;
+  }
+  h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  /*1: Grid 基礎卡片佈局 */
+  .section {
+    margin-bottom: 60px;
+  }
+  .section-title {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition:all 0.3s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35 px rgba(0, 0, 0, 0.2);
+  }
+  .card-image{
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg,#f6b6bf,#feca57);/*漸層顏色寫法*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    position: relative;
+    overflow:hidden;   /* 當元素內容超出它的容器範圍時，把超出的部分隱藏起來，不顯示。 */
+  }
+  .card-image::before{
+    content:'';/*在使用 ::before 或 ::after 偽元素時，產生一個空的內容節點，使這個偽元素得以顯示出來。*/
+    position: absolute;
+    top:0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+    transition:left 0.5s;
+  }
+
+  .card:hover .card-image::before{
+    left:100%
+  }
+  .card-content{
+    padding: 20px;
+  }
+
+  .card-title{
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .card-description{
+    color:#666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  .card-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px;
+  }
+  .card-price{
+    font-style: 1.5rem;
+    font-weight: bold;
+    color:#777eea;
+  }
+  .card-button{
+    background: linear-gradient(45deg,#667eea,#764ba2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor:pointer;/*改滑鼠樣式*/
+    transition:all 0.3s ease;
+  }
+  .card-button:hover{
+    transform: scale(1.05);/*放大按鈕效果*/
+    box-shadow:0 5px 15px rgba(102,126,234,0.4);
+  }
+  /*2.Ｆlex特殊佈局卡片*/
+  .flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content: center;
+  }
+
+  .flex-card{
+    flex:1 1 300px;
+    min-width: 400px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+  }
+  
+  .flex-card:hover{
+    transform:scale(1.02) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+
+  .flex-card-header{
+    background: linear-gradient(135deg,#ff9a9e,#fecfef);
+    padding: 30px 20px;
+    text-align: center;
+    position: relative; 
+  }
+  .flex-card-header::after{
+    content:'';
+    position: absolute;
+    bottom: -10px;
+    left:50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #fecfef;
+  }
+
+  .flex-card-icon{
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  .flex-card-title{
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  .flex-card-subtitle{
+    color:rgba(255,255,255,0.8)
+  }
+  .flex-card-body{
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-list{
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .feature-list li{
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+  }
+
+  .feature-list li::before{
+    content:'✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  /*混合佈局 Grid內坎Flex*/
+  .mixed-grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows:auto auto;
+    gap:20px;
+    margin-top: 40px;
+  }
+  .sidebar-card{
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction:column;/*是讓 主軸變為垂直方向（從上到下），使子項目排列方式改為 縱向堆疊。*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3 ease;
+  }
+  .sidebar-card:hover{
+    background:white;
+    transform: translateY(-5px);
+  }
+
+  .main-card{
+    grid-column:2;
+    grid-row:1/-1; /*從第1條橫線開始到最後一條橫線為止也就是讓元素跨越整個垂直方向的所有 row*/
+    background: white;
+    border-radius: 20px;
+    overflow:hidden;
+    display:flex;
+    flex-direction: column;
+  }
+  .main-card-image{
+    height: 250px;
+    background: linear-gradient(45deg,#667eea,#764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 4rem;
+  }
+  .main-card-content{
+    flex:1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .main-card-title{
+    font-size: 2rem;
+    margin-bottom:15px;
+    color: #333;
+  }
+
+  .main-card-text{
+    flex:1;
+    color:#666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .main-card-actions{
+    display: flex;
+    gap:15px;
+  }
+
+  .action-btn{
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor:pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .primary-btn{
+    background: linear-gradient(45deg,#667eea,#764ba2);
+    color:white;
+  }
+  .secondary-btn{
+    background: transparent;
+    color:#667eea;
+    border: 2px solid #667eea;
+  }
+  .action-btn:hover{
+    transform: translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  }
+  /*響應式設計*/
+  @media(max-width:768px){
+    .mixed-grid{
+      grid-template-columns:1fr;
+      grid-template-rows:auto;
+    }
+
+    .main-card{
+      grid-column:1;
+      grid-row:auto;
+    }
+
+    .sidebar-card{
+      order:2
+    }
+    .main-card{
+      order:1
+    }
+  }
+  /*動畫效果*/
+  @keyframes fadeInUp{
+    from{
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to{
+      opacity: 1;
+      transform:translateY(0);
+    }
+  }
+  .card, .flex-card, .sidebar-card, .main-card{
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .card:nth-child(2){animation-delay:0.1s}
+  .card:nth-child(3){animation-delay:0.2s}
+  .card:nth-child(4){animation-delay:0.3s}
