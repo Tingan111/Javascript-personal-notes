@@ -1,3 +1,3 @@
-# Javascript-test
+# Javascript-note
 
-主要練習ＪＳ相關應用
+關於ＪＳ個人自我練習的筆記記錄
