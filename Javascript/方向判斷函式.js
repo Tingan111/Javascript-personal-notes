@@ -27,4 +27,5 @@ console.log(direction(2,1,5))
 //filter(Boolean)	保留所有為 true 的項目
 //filter(x => Boolean(x))	同上，完整寫法
 //filter(x => x)三種寫法效果都一樣 
+//主要是filter()比較所以是Boolean值
 
