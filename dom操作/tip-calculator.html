@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: white;
+        font-family: "Helvetica", sans-serif;
+      }
+      .container {
+        background-color: white;
+        max-width: 600px;
+        margin: 100px auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+      }
+      h1 {
+        margin-top: 0;
+        text-align: center;
+      }
+      input {
+        padding: 10px;
+        border: 1px solid red;
+        border-radius: 4px;
+        margin: 0 10px;
+        width: 100%;
+        border: none;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        margin: 10px 0;
+        width: 100%;
+        font-size: 18px;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #total {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+      <body>
+        <header class="container">
+          <h1>Tip Calculator</h1>
+          <p>
+            Enter the bill amount and tip percentage to calculate the total.
+          </p>
+          <label for="bill">
+            <div>Bill amount:</div>
+          </label>
+            <input type="number" id="bill" />
+          <label for="tip">
+            <div>Tip percentage:</div>
+          </label>
+            <input type="number" id="tip" />
+          <button id="calculate">Calculate</button>
+
+          <div>Total:
+          <span id="total"></span>
+          </div>
+        </header>
+      </body>
+    </html>
+  <script>
+    const billInput = document.querySelector("#bill");
+    const tipInput = document.querySelector("#tip");
+    const totalSpan = document.querySelector("#total");
+    const btnEl = document.querySelector("#calculate");
+    const calculateTotal = () => {
+      // 💡 修正 1 & 2: 取得數值 (String) 後，立即使用 parseFloat() 轉換為數字 (Number)
+      const billValue = parseFloat(billInput.value);
+      const tipValue = parseFloat(tipInput.value);
+
+      // 💡 修正 2: 在計算時，使用已轉換的「數值變數」 (billValue)，而不是 DOM 物件 (billInput)
+      // 總金額 = 帳單金額 * (1 + 小費百分比 / 100)
+      const totalValue = billValue * (1 + tipValue / 100);
+
+      // 加上基礎的數值檢查，防止輸入空值或非數字
+      if (isNaN(totalValue)) {
+        totalSpan.textContent = "請輸入有效金額和小費比例";
+      } else {
+        totalSpan.textContent = `$${totalValue.toFixed(2)}`;
+      }
+    };
+    btnEl.addEventListener("click", calculateTotal);
+  </script>
+</html>
