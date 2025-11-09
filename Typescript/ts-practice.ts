@@ -9,11 +9,11 @@ interface User {
     id: number;
     name: string;
     email: string;
-    age?: number//可選屬性
+    age?: number//？代表可選屬性，沒有也不會報錯。
 }
 
 //3.型別別名（Ｔype Alias)
-type Status = "active" | "inactive" | "pending";
+type Status = "active" | "inactive" | "pending"; 
 
 //4.類別(Class)定義
 class UserManager {
